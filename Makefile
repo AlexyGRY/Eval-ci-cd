@@ -1,30 +1,34 @@
 APP_DIR := projet-react
+NPM := cd $(APP_DIR) &&
 
 .PHONY: install dev test test-coverage lint build docker-build up down logs clean
 
 install:
-	cd $(APP_DIR) && npm ci
+	$(NPM) npm ci
 
-# node_modules dépend de package-lock.json : s'il manque ou est périmé,
-# les cibles ci-dessous relancent npm ci toutes seules avant de continuer.
+# Cibles qui ont besoin des dépendances installées : réinstalle toutes
+# seules si node_modules manque ou est périmé (une seule ligne pour toutes).
+NEEDS_INSTALL := dev test test-coverage lint build
+$(NEEDS_INSTALL): $(APP_DIR)/node_modules
+
 $(APP_DIR)/node_modules: $(APP_DIR)/package-lock.json
-	cd $(APP_DIR) && npm ci
+	$(NPM) npm ci
 	@touch $(APP_DIR)/node_modules
 
-dev: $(APP_DIR)/node_modules
-	cd $(APP_DIR) && npm run dev
+dev:
+	$(NPM) npm run dev
 
-test: $(APP_DIR)/node_modules
-	cd $(APP_DIR) && npm test
+test:
+	$(NPM) npm test
 
-test-coverage: $(APP_DIR)/node_modules
-	cd $(APP_DIR) && npm run test:coverage
+test-coverage:
+	$(NPM) npm run test:coverage
 
-lint: $(APP_DIR)/node_modules
-	cd $(APP_DIR) && npm run lint
+lint:
+	$(NPM) npm run lint
 
-build: $(APP_DIR)/node_modules
-	cd $(APP_DIR) && npm run build
+build:
+	$(NPM) npm run build
 
 docker-build:
 	docker compose build

@@ -4,4 +4,4 @@ services:
       context: ./projet-react
       dockerfile: ../Dockerfile
     ports:
-      - "5003:80"
+      - "5173:5173"
