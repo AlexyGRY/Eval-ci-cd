@@ -1,0 +1,59 @@
+:root {
+  --ink: #14201a;
+  --ink-soft: #a9b7ae;
+  --text-muted: #565f5b;
+  --paper: #eef1ec;
+  --surface: #ffffff;
+  --line: #d7ddd7;
+  --pine: #2f5d47;
+  --pine-bright: #57a37c;
+  --pine-tint: #dfe9e2;
+  --pine-contrast: #f4f6f3;
+  --clay: #9c4a34;
+
+  --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --font-body: 'IBM Plex Sans', system-ui, 'Segoe UI', Roboto, sans-serif;
+
+  font: 400 16px/1.6 var(--font-body);
+  color-scheme: light;
+  color: #171b1a;
+  background: var(--paper);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.1;
+  margin: 0 0 0.4em;
+  letter-spacing: -0.01em;
+}
+
+p {
+  margin: 0 0 1em;
+  color: var(--text-muted);
+  max-width: 62ch;
+}
+
+a {
+  color: var(--pine);
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+:focus-visible {
+  outline: 2px solid var(--pine);
+  outline-offset: 2px;
+}

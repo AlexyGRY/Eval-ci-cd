@@ -1,0 +1,7 @@
+services:
+  web:
+    build:
+      context: ./projet-react
+      dockerfile: ../Dockerfile
+    ports:
+      - "5003:80"

@@ -1,0 +1,259 @@
+.hero {
+  background: var(--ink);
+  padding: 0 24px;
+}
+
+.hero-inner {
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  padding: 28px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.site-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: #fff;
+  text-decoration: none;
+}
+
+.monogram {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--pine-bright);
+  color: var(--ink);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.site-header nav {
+  display: flex;
+  gap: 24px;
+}
+
+.site-header nav a {
+  color: var(--ink-soft);
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.site-header nav a:hover {
+  color: #fff;
+}
+
+.hero-content {
+  padding: 72px 0 88px;
+}
+
+.hero-content .role {
+  color: var(--pine-bright);
+  font-weight: 500;
+  font-size: 1rem;
+  margin-bottom: 0.6em;
+}
+
+.hero-content h1 {
+  color: #fff;
+  font-size: clamp(2.1rem, 5vw, 3.4rem);
+  max-width: 14ch;
+}
+
+.hero-content .lede {
+  color: var(--ink-soft);
+  max-width: 52ch;
+  font-size: 1.05rem;
+}
+
+.hero-cta {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 12px 26px;
+  border: 1px solid var(--pine-bright);
+  border-radius: 4px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.hero-cta:hover {
+  background: var(--pine-bright);
+  color: var(--ink);
+}
+
+.app {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.section {
+  padding: 64px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.section:last-of-type {
+  border-bottom: none;
+}
+
+.section h2 {
+  font-size: 1.5rem;
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 4px 0 32px;
+}
+
+.filter {
+  padding: 6px 14px;
+  border-radius: 4px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.filter:hover {
+  border-color: var(--pine);
+  color: var(--pine);
+}
+
+.filter.active {
+  border-color: var(--pine);
+  background: var(--pine);
+  color: var(--pine-contrast);
+}
+
+.project-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.project-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: start;
+  gap: 4px 16px;
+  padding: 24px 16px;
+  margin: 0 -16px;
+  border-radius: 6px;
+  transition: background 0.15s ease;
+}
+
+.project-row:hover {
+  background: var(--surface);
+}
+
+.project-row h3 {
+  font-size: 1.15rem;
+  margin: 0 0 6px;
+}
+
+.project-category {
+  justify-self: end;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: var(--pine-tint);
+  color: var(--pine);
+  font-size: 0.78rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.project-row p {
+  grid-column: 1 / -1;
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-field label {
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.form-field input,
+.form-field textarea {
+  font: inherit;
+  padding: 11px 14px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: var(--surface);
+  color: #171b1a;
+}
+
+.contact-form button {
+  align-self: flex-start;
+  padding: 11px 24px;
+  border: none;
+  border-radius: 4px;
+  background: var(--pine);
+  color: var(--pine-contrast);
+  font-weight: 600;
+  transition: background 0.15s ease, transform 0.1s ease;
+}
+
+.contact-form button:hover {
+  background: #274d3c;
+  transform: translateY(-1px);
+}
+
+.form-error {
+  color: var(--clay);
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.form-success {
+  color: var(--pine);
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.site-footer {
+  background: var(--ink);
+  margin-top: 64px;
+}
+
+.site-footer-inner {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 28px 24px;
+}
+
+.site-footer p {
+  color: var(--ink-soft);
+  font-size: 0.85rem;
+  margin: 0;
+}
