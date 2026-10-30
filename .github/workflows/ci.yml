@@ -7,6 +7,10 @@ on:
     branches:
       - develop
 
+defaults:
+  run:
+    working-directory: projet-react
+
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -19,11 +23,11 @@ jobs:
         with:
           node-version: '24'
 
-      - name: Mise en cache des dépendances 
+      - name: Mise en cache des dépendances npm
         uses: actions/cache@v6
         with:
           path: ~/.npm
-          key: ${{ runner.os }}-npm-${{ hashFiles('package-lock.json') }}
+          key: ${{ runner.os }}-npm-${{ hashFiles('projet-react/package-lock.json') }}
           restore-keys: ${{ runner.os }}-npm-
 
       - name: Installer les dépendances
@@ -42,9 +46,8 @@ jobs:
         uses: actions/upload-artifact@v7
         with:
           name: rapport-tests
-          path: test-results/junit.xml
+          path: projet-react/test-results/junit.xml
           if-no-files-found: warn
-
 
   build:
     needs: test
@@ -59,11 +62,11 @@ jobs:
         with:
           node-version: '24'
 
-      - name: Mise en cache des dépendances
+      - name: Mise en cache des dépendances npm
         uses: actions/cache@v6
         with:
           path: ~/.npm
-          key: ${{ runner.os }}-npm-${{ hashFiles('package-lock.json') }}
+          key: ${{ runner.os }}-npm-${{ hashFiles('projet-react/package-lock.json') }}
           restore-keys: ${{ runner.os }}-npm-
 
       - name: Installer les dépendances
@@ -76,7 +79,7 @@ jobs:
         uses: actions/upload-artifact@v7
         with:
           name: build-production
-          path: dist/
+          path: projet-react/dist/
           if-no-files-found: error
 
       - name: Ajouter le résumé du pipeline
@@ -87,5 +90,3 @@ jobs:
             printf '%s\n' '- Qualité : ESLint'
             printf '%s\n' '- Build : production (artefact `build-production`)'
           } >> "$GITHUB_STEP_SUMMARY"
-
-
