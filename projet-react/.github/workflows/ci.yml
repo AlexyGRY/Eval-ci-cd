@@ -24,3 +24,6 @@ jobs:
           path: ~/.npm
           key: ${{ runner.os }}-npm-${{ hashFiles('package-lock.json') }}
           restore-keys: ${{ runner.os }}-npm-
+        
+      - name: Installer les dépendances
+        run: npm ci
