@@ -9,7 +9,6 @@ on:
 
 jobs:
   deploy:
-    needs: test-integration
     runs-on: ubuntu-latest
     continue-on-error: false
     steps:
