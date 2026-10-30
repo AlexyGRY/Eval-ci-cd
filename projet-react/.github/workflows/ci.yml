@@ -19,10 +19,6 @@ jobs:
         with:
           node-version: '24'
 
-      - name: Exécuter ESLint
-        run: npm run lint
-
-
       - name: Mise en cache des dépendances 
         uses: actions/cache@v6
         with:
@@ -32,6 +28,9 @@ jobs:
 
       - name: Installer les dépendances
         run: npm ci
+
+      - name: Exécuter ESLint
+        run: npm run lint
 
       - name: Exécuter Vitest et générer le rapport JUnit
         run: |
@@ -79,5 +78,14 @@ jobs:
           name: build-production
           path: dist/
           if-no-files-found: error
+
+      - name: Ajouter le résumé du pipeline
+        run: |
+          {
+            printf '%s\n' '## Résumé du pipeline'
+            printf '%s\n' '- Tests : Vitest (artefact `rapport-tests`)'
+            printf '%s\n' '- Qualité : ESLint'
+            printf '%s\n' '- Build : production (artefact `build-production`)'
+          } >> "$GITHUB_STEP_SUMMARY"
 
 
