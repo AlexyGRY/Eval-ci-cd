@@ -1,0 +1,26 @@
+# 1. Déclenchement
+name: CI
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - develop
+jobs:
+# 2. Cache des dépendances npm
+  cache:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Récupérer le dépôt
+        uses: actions/checkout@v7
+      - name: Installation de nodejs
+        uses: actions/setup-node@v7
+        with:
+          node-version: '24'
+      - name: Mise en cache des dépendances 
+        uses: actions/cache@v6
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-npm-${{ hashFiles('package-lock.json') }}
+          restore-keys: ${{ runner.os }}-npm-
