@@ -6,9 +6,7 @@ on:
   pull_request:
     branches:
       - develop
-#5. Qualité de code
-#Ajoutez, dans le job test , une étape qui exécute ESLint sur le projet. Le job doit échouer si cette commande
-#échoue.
+
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -23,7 +21,7 @@ jobs:
 
       - name: Exécuter ESLint
         run: npm run lint
-        
+
 
       - name: Mise en cache des dépendances 
         uses: actions/cache@v6
