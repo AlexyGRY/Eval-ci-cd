@@ -9,6 +9,7 @@ on:
 
 jobs:
   deploy:
+    needs: build
     runs-on: ubuntu-latest
     continue-on-error: false
     steps:
