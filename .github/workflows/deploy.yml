@@ -22,10 +22,10 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.SSH_PORT }}
           script: |
-            if [ -d ~/Alexyapp/.git ]; then
-              cd ~/Alexyapp
+            if [ -d ~/Alexyapp-react/.git ]; then
+              cd ~/Alexyapp-react
               git pull 
             else
-              git clone ${{github.server_url}}/${{github.repository}}.git ~/Alexyapp
+              git clone ${{github.server_url}}/${{github.repository}}.git ~/Alexyapp-react
             fi
 
